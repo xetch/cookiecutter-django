@@ -1,23 +1,46 @@
 cookiecutter-django
 =======================
 
+.. image:: https://requires.io/github/pydanny/cookiecutter-django/requirements.png?branch=master
+     :target: https://requires.io/github/pydanny/cookiecutter-django/requirements/?branch=master
+     :alt: Requirements Status
+
+.. image:: https://travis-ci.org/pydanny/cookiecutter-django.svg?branch=master
+     :target: https://travis-ci.org/pydanny/cookiecutter-django?branch=master
+     :alt: Build Status
+
 A cookiecutter_ template for Django.
 
 .. _cookiecutter: https://github.com/audreyr/cookiecutter
 
+Please update your version of cookiecutter!
+--------------------------------------------
+
+This cookiecutter template uses features that exists only in cookiecutter 0.9.0 or higher.
+
 Features
 ---------
 
-* For Django 1.6
-* Twitter Bootstrap 3
-* AngularJS
-* Settings management via django-configurations
-* Registration via django-allauth
-* User avatars via django-avatar
-* Procfile for deploying to Heroku
+* For Django 1.7
+* Twitter Bootstrap_ 3
+* AngularJS_
+* Settings management via django-configurations_
+* Registration via django-allauth_
+* User avatars via django-avatar_
+* Procfile_ for deploying to Heroku
 * Heroku optimized requirements
 * Basic caching setup
 * Grunt build for compass and livereload
+* Basic e-mail configurations for send emails via SendGrid_
+
+.. _Bootstrap: https://github.com/twbs/bootstrap
+.. _AngularJS: https://github.com/angular/angular.js
+.. _django-configurations: https://github.com/jezdez/django-configurations
+.. _django-allauth: https://github.com/pennersr/django-allauth
+.. _django-avatar: https://github.com/jezdez/django-avatar/
+.. _Procfile: https://devcenter.heroku.com/articles/procfile
+.. _SendGrid: https://sendgrid.com/
+
 
 Constraints
 -----------
@@ -54,13 +77,15 @@ It prompts you for questions. Answer them::
     remote: Total 550 (delta 283), reused 479 (delta 222)
     Receiving objects: 100% (550/550), 127.66 KiB | 58 KiB/s, done.
     Resolving deltas: 100% (283/283), done.
-    project_name (default is "project_name")? redditclone
-    repo_name (default is "repo_name")? redditclone
+    project_name (default is "project_name is the title of the project.")? Reddit Clone
+    repo_name (default is "reddit_clone")? reddit
     author_name (default is "Your Name")? Daniel Greenfeld
     email (default is "Your email")? pydanny@gmail.com
     description (default is "A short description of the project.")? A reddit clone.
-    year (default is "Current year")? 2014
-    domain_name (default is "Domain name")?
+    domain_name (default is "example.com")? myreddit.com
+    version (default is "0.1.0")? 0.0.1
+    now (default is "2015/01/13")? 2015/01/16
+    year (default is "2015")?
 
 
 Enter the project and take a look around::
@@ -95,11 +120,22 @@ The steps below will get you up and running with a local development environment
 * virtualenv
 * PostgreSQL
 
-First make sure to create and activate a virtualenv, then open a terminal at the project root and install the requirements for local development::
+First make sure to create and activate a virtualenv_, then open a terminal at the project root and install the requirements for local development::
 
     $ pip install -r requirements/local.txt
 
-You can now run the usual Django ``runserver`` command (replace ``yourapp`` with the name of the directory containing the Django project)::
+.. _virtualenv: http://docs.python-guide.org/en/latest/dev/virtualenvs/
+
+Then, create a PostgreSQL database and add the database configuration using the  ``dj-database-url`` app pattern: ``postgres://db_owner:password@dbserver_ip:port/db_name`` either:
+
+* in the ``config.common.py`` setting file,
+* or in the env variable ``DATABASE_URL``
+
+
+
+You can now run the usual Django ``migrate`` and ``runserver`` command (replace ``yourapp`` with the name of the directory containing the Django project)::
+
+    $ python yourapp/manage.py migrate
 
     $ python yourapp/manage.py runserver
 
@@ -115,7 +151,7 @@ Make sure that nodejs_ is installed. Then in the project root run::
 
     $ npm install
 
-.. _nodejs: http://nodejs.org/download/ 
+.. _nodejs: http://nodejs.org/download/
 
 Now you just need::
 
@@ -123,7 +159,7 @@ Now you just need::
 
 The base app will now run as it would with the usual ``manage.py runserver`` but with live reloading and Sass compilation enabled.
 
-To get live reloading to work you'll probably need to install an `appropriate browser extension`_ 
+To get live reloading to work you'll probably need to install an `appropriate browser extension`_
 
 .. _appropriate browser extension: http://feedback.livereload.com/knowledgebase/articles/86242-how-do-i-install-and-use-the-browser-extensions-
 
@@ -138,18 +174,6 @@ Releases
 --------
 
 Want a stable release? You can find them at https://github.com/pydanny/cookiecutter-django/releases
-
-**note**: Cookiecutter won't support tagged releases until 0.7.0 comes out, which should be any day! Which means, if you want to use a
-tagged release of cookiecutter-django, then you have to install Cookiecutter directly from GitHub. To do that, follow these steps:
-
-1. Enter your virtualenv.
-2. Run these commands:
-
-.. code-block:: bash
-
-    (cookiecutter) $ git clone https://github.com/audreyr/cookiecutter.git
-    (cookiecutter) cd cookiecutter
-    (cookiecutter) python setup.py develop
 
 
 Not Exactly What You Want?

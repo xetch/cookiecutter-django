@@ -13,13 +13,30 @@ Tom Offermann
 Lyla Fischer
 Taylor Baldwin
 Chris Curvey (@ccurvey)
-Fábio C. Barrionuevo da Luz (@luzfcb)
-Saurabh Kumar
+Fábio C. Barrionuevo da Luz (@luzfcb)*
+Saurabh Kumar (gh: theskumar / @_theskumar)*
 Ashley Camba
 Yaroslav Halchenko
 Pablo / @oubiga
 Tom Atkins / @knitatoms
 Julio Castillo / @juliocc
+Kevin A. Stone
+mozillazg / @mozillazg
+Henrique G. G. Pereira / @ikkebr
+Travis McNeill / gh: Tavistock / @tavistock_esq
+Matt Linares
+Russell Davies
+Sławek Ehlert / @slafs
+Alberto Sanchez / @alb3rto
+Eyad Al Sibai / @eyadsibai
+Chris Franklin
+Benjamin Abel
+Felipe Arruda / @arruda
+Matt Warren / @mfwarren
+Martin Blech
+Andy Rose
+Andrew Mikhnevich / @zcho
+Kevin Ndung'u / @kevgathuku
 
 * Possesses commit rights
 
